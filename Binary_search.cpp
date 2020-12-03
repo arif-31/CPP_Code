@@ -30,7 +30,6 @@ void binary_search(int ar[], int n, int key)
 
     //if search only element index
 
-    /* 
     while (begin <= end)
     {
         int mid = (begin + end) / 2;
@@ -44,12 +43,14 @@ void binary_search(int ar[], int n, int key)
         else
             end = mid - 1;
     }
-     */
 
     // if search at first element index that
     // means left fast index
     // or same as insert an element at right position
     // lower bound index of key value
+
+    //**** Find upper_bound index of given value *****
+
     int index = 0;
     while (begin <= end)
     {
@@ -58,6 +59,30 @@ void binary_search(int ar[], int n, int key)
         {
             index = mid;
             begin = mid + 1;
+            sprint("index = ");
+            print(index);
+        }
+        if (ar[mid] < key)
+            begin = mid + 1;
+        else
+            end = mid - 1;
+    }
+    print(begin);
+    ar[begin] = key;
+    for (int i = 1; i <= n; i++)
+        sprint(ar[i]);
+    print("");
+
+    // ******* Find lower_bound index of the given value
+
+    int index = 0;
+    while (begin <= end)
+    {
+        int mid = (begin + end) / 2;
+        if (ar[mid] == key)
+        {
+            index = mid;
+            end = mid - 1;
             sprint("index = ");
             print(index);
         }
@@ -80,7 +105,7 @@ int main()
         cin >> n;
         int ar[n + 10];
         f(n) cin >> ar[i];
-        ar_sort(ar,n);
+        ar_sort(ar, n);
         int cc = 3;
         while (cc--)
         {
