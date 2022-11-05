@@ -59,7 +59,7 @@ int main()
     {
             if(ar[l]<=ar[h]){
                 ans1=ar[l];
-			        	break;
+                break;
             }
             int m=(l+h)/2;
             int next=(m+1)%n;
@@ -70,11 +70,9 @@ int main()
 				         break;
 			      }
             
-			      if(ar[m]<=ar[h])
-			      h=m-1;
-            else if(ar[m]>=ar[l])
-			      l=m+1;
-     }
+             if(ar[m]<=ar[h]) h=m-1;
+            else if(ar[m]>=ar[l])l=m+1;
+      }
     
 		 print(ans1);
 	    
